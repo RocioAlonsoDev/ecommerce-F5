@@ -42,9 +42,8 @@ Route::get('/user/{user_id}', function ($user_id) {
     ));
 })->where(array('user_id'=>'[0-9]+'));
 
-Route::resource('order',OrderController::class);
-/*->group(function () {
-    Route::get('/orders/{id}', 'show');
-    Route::post('/orders', 'store');
-})*/
+
+Route::get('/orders', function () {
+    return view('orders.index');
+});
 ?>
