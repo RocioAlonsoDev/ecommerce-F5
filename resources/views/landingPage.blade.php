@@ -14,8 +14,11 @@
         <a href='/user/1'>Mi perfil</a>
         <a href='/about-us'>Sobre nosotros</a>
     </div>
-    
-
+    @if (session('success'))
+        <p>
+            {{ session('success') }}
+        </p>
+    @endif
     <h1>Esto es la carta</h1>
 </body>
 </html>
