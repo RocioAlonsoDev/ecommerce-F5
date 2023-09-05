@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('dish', function (Blueprint $table) {
             $table->increments('dish_id');
-            $table->string('dish_name', 30);
-            $table->float('price', 3, 2);
+            $table->string('dish_name', 40);
+            $table->float('price', 5, 2);
             $table->string('description');
             $table->binary('dish_image');
             $table->timestamps();
