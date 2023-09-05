@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DishController;
+
 
 Route::get('/', function () {return view('landingPage');});
 Route::get('/user/login', function () {return view('user.login');});
@@ -15,13 +18,11 @@ Route::post('/user/login', [UserController::class, 'logout']);
 Route::get('/user/{user}/edit', [UserController::class, 'edit']);
 Route::post('/user/{user}', [UserController::class, 'update']);
 
-
-
 Route::get('/about-us', function () {
     return view('aboutus');
 });
-Route::get('/dish/{dish_id}', function ($dish_id) {
-    return view('dish', array(
-        'dish_id'=>$dish_id
-    ));
-})->where(array('dish_id'=>'[0-9]+'));
+
+Route::resource('dish', DishController::class);
+
+Route::resource('order', OrderController::class);
+?>

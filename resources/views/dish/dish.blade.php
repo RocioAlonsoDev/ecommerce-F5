@@ -16,10 +16,12 @@
         @else
         <a href='/user/login'>Iniciar Sesión</a>
         <a href='/user/signup'>Registrarse </a>
-        @endif
+        <a href='/dish/patatas'>Patatas Bravas</a>
+        <a href='/user/1'>Mi perfil</a>
+        <a href='/about-us'>Sobre nosotros</a>
     </div>
     
 
-    <h1>Esto es el plato</h1>
+    <h1>Esto es el plato : <?=$dish_name?></h1>
 </body>
 </html>
