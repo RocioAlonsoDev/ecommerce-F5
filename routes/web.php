@@ -5,7 +5,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DishController;
 
-
 Route::get('/', function () {return view('landingPage');});
 Route::get('/user/login', function () {return view('user.login');});
 Route::post('/',[UserController::class,'login']);
