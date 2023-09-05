@@ -10,10 +10,7 @@ use Hash;
 
 class UserController extends Controller
 {
-    // public function index()
-    // {
-      
-    // }
+    
 
     public function create()
     {
@@ -50,7 +47,9 @@ class UserController extends Controller
         die();
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
+
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -66,11 +65,12 @@ class UserController extends Controller
 
     }
 
-    public function logout(){
+    public function logout(User $user)
+    {
         Session::flush();
         Auth::logout();
-  
-        return Redirect('login');
+
+        return redirect('/user/login');
     }
 
     public function show(User $user)
@@ -80,18 +80,54 @@ class UserController extends Controller
         return view('user.user')->with('user', $user);
     }
 
-    // public function edit(User $user)
-    // {
-    //     //
-    // }
+    public function edit(User $user)
+    {
+        return view('user.edit')->with('user', $user);;
+    }
 
-    // public function update(Request $request, User $user)
-    // {
-    //     //
-    // }
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'address' => 'required',
+            'phone' => 'required',
+            'surname' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
 
-    // public function destroy(User $user)
+
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->name = $request->name;
+        $user->surname = $request->surname;
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->newsletter = $request->newsletter;
+        
+        $user->save();
+
+        return redirect("/user/$user->user_id}")->with('success', 'Order Data has been updated successfully');
+    }
+
+    public function destroy($user_id)
+    {
+        $user = User::find($user_id);
+    
+        if (!$user) {
+            return redirect()->route("/user/{$user_id}")->with('error', 'No se ha podido eliminar el usuario, intente de nuevo más tarde.');
+        }
+    
+        $user->delete();
+    
+        return redirect('/')->withSuccess('Tu usuario se ha eliminado permanentemente.');
+    }
+    
+    // public function index()
     // {
-    //     //
+    //     $perPage = 5;
+    //     $data = User::latest()->paginate($perPage);
+
+    //     return view('user.index', compact('data'));
     // }
 }
