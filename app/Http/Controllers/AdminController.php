@@ -6,8 +6,20 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function adminDashboard(){
-        return view('admin.index');
+    public function adminOrders(){
+        return view('admin.orders');
+    }
+
+    public function adminMenu(){
+        return view('admin.menu');
+    }
+
+    public function adminAdmins(){
+        return view('admin.admins');
+    }
+
+    public function adminStats(){
+        return view('admin.stats');
     }
 
     public function adminLogout(Request $request)

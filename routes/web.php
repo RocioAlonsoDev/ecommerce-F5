@@ -21,7 +21,10 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::middleware(['auth','role:admin'])->group(function(){
-    Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+    Route::get('/admin/orders', [AdminController::class, 'adminOrders'])->name('admin.orders');
+    Route::get('/admin/menu', [AdminController::class, 'adminMenu'])->name('admin.menu');
+    Route::get('/admin/admins', [AdminController::class, 'adminAdmins'])->name('admin.admins');
+    Route::get('/admin/stats', [AdminController::class, 'adminStats'])->name('admin.stats');
     Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
 });
 
