@@ -33,17 +33,17 @@
 				@foreach($data as $row)
 
 					<tr>
-						<td>{{ $row->order_id}}</td>
+						<td>{{ $row->id}}</td>
 						<td>{{ $row->state }}</td>
 						<td>{{ $row->payment }}</td>
 						<td>{{ $row->delivery }}</td>
 						<td>{{ $row->comments }}</td>
 						<td>
-							<form method="post" action="{{ route('order.destroy', $row->order_id) }}">
+							<form method="post" action="{{ route('order.destroy', $row->id) }}">
 								@csrf
 								@method('DELETE')
-								<a href="{{ route('order.show', $row->order_id) }}" class="btn btn-primary btn-sm">View</a>
-								<a href="{{ route('order.edit', $row->order_id) }}" class="btn btn-warning btn-sm">Edit</a>
+								<a href="{{ route('order.show', $row->id) }}" class="btn btn-primary btn-sm">View</a>
+								<a href="{{ route('order.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
 								<input type="submit" class="btn btn-danger btn-sm" value="Delete" />
 							</form>
 							

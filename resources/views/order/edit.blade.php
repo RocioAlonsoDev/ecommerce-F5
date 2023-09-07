@@ -5,10 +5,10 @@
 <div class="card">
 	<div class="card-header">Edit Order</div>
 	<div class="card-body">
-		<form method="post" action="{{ route('order.update', $order->order_id) }}" enctype="multipart/form-data">
+		<form method="post" action="{{ route('order.update', $order->id) }}" enctype="multipart/form-data">
 			@csrf
 			@method('PUT')
-			<input type="hidden" name="order_id" value="{{ $order->order_id }}">
+			<input type="hidden" name="id" value="{{ $order->id }}">
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Estado</label>
 				<select name="state" class="form-control">

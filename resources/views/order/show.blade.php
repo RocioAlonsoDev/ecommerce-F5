@@ -15,7 +15,7 @@
 		<div class="row mb-3">
 			<label class="col-sm-2 col-label-form"><b>Numero</b></label>
 			<div class="col-sm-10">
-				{{ $order->order_id }}
+				{{ $order->id }}
 			</div>
 		</div>
 		<div class="row mb-3">

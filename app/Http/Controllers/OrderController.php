@@ -95,10 +95,10 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($order_id)
+    public function destroy($id)
     {
       
-        $order = Order::find($order_id);
+        $order = Order::find($id);
     
         if (!$order) {
             return redirect()->route('order.index')->with('error', 'Order not found');

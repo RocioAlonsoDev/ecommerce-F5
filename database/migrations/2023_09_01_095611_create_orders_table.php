@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dish', function (Blueprint $table) {
-            $table->increments('dish_id');
-            $table->string('dish_name', 30);
-            $table->float('price', 3, 2);
-            $table->string('description');
-            $table->binary('dish_image');
+        Schema::create('orders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->enum('state', ['incomming', 'doing', 'close']);
+            $table->enum('payment', ['creditCard', 'cash']);
+            $table->enum('delivery', ['delivery', 'pickUp']);
+            $table->text('comments');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dish');
+        Schema::dropIfExists('orders');
     }
 };
