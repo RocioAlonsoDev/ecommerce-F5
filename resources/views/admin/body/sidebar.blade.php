@@ -1,6 +1,6 @@
 <nav class="sidebar">
       <div class="sidebar-header">
-        <a href="#" class="sidebar-brand">
+        <a href="{{route('admin.orders')}}" class="sidebar-brand">
           Food<span>House</span>
         </a>
         <div class="sidebar-toggler not-active">
@@ -13,33 +13,33 @@
         <ul class="nav">
           <li class="nav-item nav-category">Inicio</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('admin.orders')}}" class="nav-link">
               <i class="link-icon" data-feather="inbox"></i>
               <span class="link-title">Pedidos</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" aria-controls="charts">
+            <a class="nav-link" href="{{route('admin.menu')}}" aria-controls="charts">
               <i class="link-icon" data-feather="layout"></i>
               <span class="link-title">Carta</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" aria-controls="charts">
+            <a class="nav-link" href="{{route('admin.stats')}}" aria-controls="charts">
               <i class="link-icon" data-feather="pie-chart"></i>
               <span class="link-title">Estadísticas</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" aria-controls="charts">
+            <a class="nav-link" href="{{route('admin.admins')}}" aria-controls="charts">
               <i class="link-icon" data-feather="unlock"></i>
-              <span class="link-title">Admins</span>
+              <span class="link-title">Permisos</span>
             </a>
           </li>
         </ul>
       </div>
     </nav>
-    <nav class="settings-sidebar">
+    <!-- <nav class="settings-sidebar">
       <div class="sidebar-body">
         <a href="#" class="settings-sidebar-toggler">
           <i data-feather="settings"></i>
@@ -55,5 +55,5 @@
           </a>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
