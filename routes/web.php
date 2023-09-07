@@ -3,6 +3,13 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DishController;
+
+
+Route::resource('dish', DishController::class);
+Route::resource('order', OrderController::class);
+
 
 Route::get('/', function () {
     return view('dashboard');
@@ -25,3 +32,6 @@ Route::middleware(['auth','role:admin'])->group(function(){
 });
 
 Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
+
+
+?>
