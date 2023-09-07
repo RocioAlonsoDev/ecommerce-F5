@@ -5,10 +5,6 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -28,3 +24,4 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/admin/logout', [AdminController::class, 'adminLogout'])->name('admin.logout');
 });
 
+Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
