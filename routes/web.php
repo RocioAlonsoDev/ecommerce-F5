@@ -3,8 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DishController;
+use App\Http\Controllers\OrderController;
 
 
 Route::resource('dish', DishController::class);
