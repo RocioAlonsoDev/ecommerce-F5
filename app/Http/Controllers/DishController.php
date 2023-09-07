@@ -32,23 +32,23 @@ class DishController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'dish_name' => 'required|max:30',
+            'name' => 'required|max:30',
             'price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
             'description' => 'required',
-            'dish_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Ajusta las reglas según tus necesidades
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Ajusta las reglas según tus necesidades
         ]);
     
         // Guardar el nuevo plato en la base de datos
         try {
             $dish = new Dish();
-            $dish->dish_name = $request->input('dish_name');
+            $dish->name = $request->input('name');
             $dish->price = $request->input('price');
             $dish->description = $request->input('description');
         
-            if ($request->hasFile('dish_image')) {
-                $image = $request->file('dish_image');
+            if ($request->hasFile('image')) {
+                $image = $request->file('image');
                 $imageData = file_get_contents($image->getRealPath());
-                $dish->dish_image = $imageData;
+                $dish->image = $imageData;
             } 
             $dish->save();
         } catch (\Illuminate\Database\QueryException $e){
@@ -70,9 +70,9 @@ class DishController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($dish_id)
+    public function edit($id)
     {
-        $dish = Dish::find($dish_id);
+        $dish = Dish::find($id);
 
         if(!$dish) {
             return redirect()->route('dish.index')->with('error', 'Dish not found');
@@ -84,31 +84,31 @@ class DishController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $dish_id)
+    public function update(Request $request, $id)
     {
 
         try {
             $request->validate([
-                'dish_name' => 'required|max:30',
+                'name' => 'required|max:30',
                 'price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
                 'description' => 'required',
-                'dish_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+                'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
 
-            $dish = Dish::find($dish_id);
+            $dish = Dish::find($id);
 
             if (!$dish){
                 return redirect()->route('dish.index')->with('error', 'Dish not found');
             }
 
-            $dish->dish_name = $request->input('dish_name');
+            $dish->name = $request->input('name');
             $dish->price = $request->input('price');
             $dish->description = $request->input('description');
 
-            if ($request->hasfile('dish_image')) {
-                $image = $request->file('dish_image');
+            if ($request->hasfile('image')) {
+                $image = $request->file('image');
                 $imageData = file_get_contents($image->getRealPath());
-                $dish->dish_image = $imageData;
+                $dish->image = $imageData;
             }
 
             $dish->save();
@@ -124,9 +124,9 @@ class DishController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($dish_name)
+    public function destroy($name)
     {
-        $dish = Dish::find($dish_name);
+        $dish = Dish::find($name);
 
         if (!$dish) {
             return redirect()->route('dish.index')->with('error', 'Dish not found');

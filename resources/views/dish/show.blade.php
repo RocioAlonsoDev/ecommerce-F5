@@ -15,7 +15,7 @@
 		<div class="row mb-3">
 			<label class="col-sm-2 col-label-form"><b>Dish Name</b></label>
 			<div class="col-sm-10">
-				{{ $dish->dish_name }}
+				{{ $dish->name }}
 			</div>
 		</div>
 		<div class="row mb-3">
@@ -33,7 +33,7 @@
 		<div class="row mb-4">
 			<label class="col-sm-2 col-label-form"><b>Dish Image</b></label>
 			<div class="col-sm-10">
-				<img src="{{ asset('images/' .  $dish->dish_image) }}" width="200" class="img-thumbnail" />
+				<img src="{{ asset('images/' .  $dish->image) }}" width="200" class="img-thumbnail" />
 			</div>
 		</div>
 	</div>

@@ -16,6 +16,6 @@
     </div>
     
 
-    <h1>Esto es el plato : <?=$dish_name?></h1>
+    <h1>Esto es el plato : <?=$name?></h1>
 </body>
 </html>

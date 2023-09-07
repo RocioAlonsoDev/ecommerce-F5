@@ -24,7 +24,7 @@
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Dish Name</label>
 				<div class="col-sm-10">
-					<input type="text" name="dish_name" class="form-control" />
+					<input type="text" name="name" class="form-control" />
 				</div>
 			</div>
 			<div class="row mb-3">
@@ -42,7 +42,7 @@
 			<div class="row mb-4">
 				<label class="col-sm-2 col-label-form">Dish Image</label>
 				<div class="col-sm-10">
-					<input type="file" name="dish_image" />
+					<input type="file" name="image" />
 				</div>
 			</div>
 			<div class="text-center">
