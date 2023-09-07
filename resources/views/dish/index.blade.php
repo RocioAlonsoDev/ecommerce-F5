@@ -1,4 +1,4 @@
-@extends('dish.master')
+@extends('order.master')
 
 @section('content')
 
