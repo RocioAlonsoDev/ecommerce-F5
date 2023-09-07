@@ -19,6 +19,14 @@ License: For each use you must have a valid license purchased only from above li
 
 	<title>NobleUI - HTML Bootstrap 5 Admin Dashboard Template</title>
 
+  <style type='text/css'>
+    .authlogin-side-wrapper{
+      width:100%;
+      height:100%;
+      background-image: url({{asset('upload/login-img.jpg')}});
+    }
+  </style>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +61,7 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="card">
 							<div class="row">
                 <div class="col-md-4 pe-md-0">
-                  <div class="auth-side-wrapper">
+                  <div class="authlogin-side-wrapper">
 
                   </div>
                 </div>
