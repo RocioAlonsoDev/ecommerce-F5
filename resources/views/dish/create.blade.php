@@ -36,9 +36,22 @@
 			<div class="row mb-4">
 				<label class="col-sm-2 col-label-form">Description</label>
 				<div class="col-sm-10">
-					<input type='text' name="description" class="form-control"></input>
+					<input type="text" name="description" class="form-control" />
 				</div>
 			</div>
+			<div class="row mb-4">
+				<label class="col-sm-2 col-label-form">Category</label>
+				<div class="col-sm-10">
+					<select name="category_id" class="form-control">
+							@foreach($categories as $category)
+								<option value="{{ $category->id }}">
+									{{ $category->name }}
+								</option>
+							@endforeach
+					</select>
+				</div>
+			</div>
+			<div class="row mb-3">
 			<div class="row mb-4">
 				<label class="col-sm-2 col-label-form">Dish Image</label>
 				<div class="col-sm-10">

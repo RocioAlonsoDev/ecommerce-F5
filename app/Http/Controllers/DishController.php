@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dish;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -23,9 +24,11 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view ('dish.create');
-    }
+        $categories = Category::all();
 
+        return view('dish.create', compact('categories'));
+    }
+    
     /**
      * Store a newly created resource in storage.
      */
@@ -35,6 +38,7 @@ class DishController extends Controller
             'name' => 'required|max:30',
             'price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
             'description' => 'required',
+            'category_id' => '',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Ajusta las reglas según tus necesidades
         ]);
     
@@ -44,6 +48,7 @@ class DishController extends Controller
             $dish->name = $request->input('name');
             $dish->price = $request->input('price');
             $dish->description = $request->input('description');
+            $dish->category_id = $request->input('category_id');
         
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
@@ -64,7 +69,8 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        return view('dish.show', compact ('dish'));
+        $categories = Category::all();
+        return view('dish.show', compact ('dish', 'categories'));
     }
 
     /**
@@ -78,7 +84,11 @@ class DishController extends Controller
             return redirect()->route('dish.index')->with('error', 'Dish not found');
         }
 
-        return view('dish.edit', compact('dish'));
+        // return view('dish.edit', compact('dish'));
+
+        $categories = Category::all();
+
+        return view('dish.edit', compact('dish', 'categories'));
     }
 
     /**
@@ -92,6 +102,7 @@ class DishController extends Controller
                 'name' => 'required|max:30',
                 'price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
                 'description' => 'required',
+                'category_id' => '',
                 'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]);
 
@@ -104,6 +115,7 @@ class DishController extends Controller
             $dish->name = $request->input('name');
             $dish->price = $request->input('price');
             $dish->description = $request->input('description');
+            $dish->category_id = $request->input('category_id');
 
             if ($request->hasfile('image')) {
                 $image = $request->file('image');
@@ -112,6 +124,9 @@ class DishController extends Controller
             }
 
             $dish->save();
+
+            // $categories = Category::all();
+            // $categories->save();
 
             return redirect()->route('dish.index')->with('succes', 'Dish updated successfully');
         

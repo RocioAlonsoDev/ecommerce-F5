@@ -17,6 +17,8 @@ return new class extends Migration
             $table->float('price', 5, 2);
             $table->string('description');
             $table->binary('image');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

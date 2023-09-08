@@ -12,5 +12,11 @@ class Dish extends Model
     protected $table = 'dishes';
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'price', 'description', 'image'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
 }
 

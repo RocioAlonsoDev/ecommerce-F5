@@ -30,6 +30,12 @@
 				{{ $dish->description }}
 			</div>
 		</div>
+		<div class="row mb-3">
+			<label class="col-sm-2 col-label-form">Category</label>
+			<div class="col-sm-10">
+				{{ $dish->category->name }}
+			</div>
+		</div>
 		<div class="row mb-4">
 			<label class="col-sm-2 col-label-form"><b>Dish Image</b></label>
 			<div class="col-sm-10">

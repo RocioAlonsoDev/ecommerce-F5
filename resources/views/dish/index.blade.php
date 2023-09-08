@@ -18,6 +18,7 @@
 				<th>Nombre</th>
 				<th>Precio</th>
 				<th>Descripción</th>
+				<th>Category</th>
 			</tr>
 			@if(count($data) > 0)
 
@@ -28,6 +29,7 @@
 						<td>{{ $row->name }}</td>
 						<td>{{ $row->price }}</td>
 						<td>{{ $row->description }}</td>
+						<td>{{ $row->category->name }}</td>
 						<td>
 							<form method="post" action="{{ route('dish.destroy', $row->id) }}">
 								@csrf
