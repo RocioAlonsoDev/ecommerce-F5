@@ -30,30 +30,13 @@
               <span class="link-title">Estadísticas</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.admins')}}" aria-controls="charts">
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.index')}}" aria-controls="charts">
               <i class="link-icon" data-feather="unlock"></i>
               <span class="link-title">Permisos</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>
-    <!-- <nav class="settings-sidebar">
-      <div class="sidebar-body">
-        <a href="#" class="settings-sidebar-toggler">
-          <i data-feather="settings"></i>
-        </a>
-        <div class="theme-wrapper">
-          <h6 class="text-muted mb-2">Light Theme:</h6>
-          <a class="theme-item" href="../demo1/dashboard.html">
-            <img src="../assets/images/screenshots/light.jpg" alt="light theme">
-          </a>
-          <h6 class="text-muted mb-2">Dark Theme:</h6>
-          <a class="theme-item active" href="../demo2/dashboard.html">
-            <img src="../assets/images/screenshots/dark.jpg" alt="light theme">
-          </a>
-        </div>
-      </div>
-    </nav> -->
 

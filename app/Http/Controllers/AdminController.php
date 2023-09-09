@@ -7,8 +7,13 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 
+
 class AdminController extends Controller
 {
+    public function adminIndex(){
+        return view('admin.admin-index');
+    }
+
     public function adminOrders(){
         return view('admin.orders');
     }
@@ -17,9 +22,6 @@ class AdminController extends Controller
         return view('admin.menu');
     }
 
-    public function adminAdmins(){
-        return view('admin.admins');
-    }
 
     public function adminStats(){
         return view('admin.stats');
@@ -66,6 +68,7 @@ class AdminController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
     public function adminPasswordChange(Request $request)
     {
         $id = Auth::user()->id;
@@ -73,6 +76,7 @@ class AdminController extends Controller
 
         return view('admin.password-change', compact('profileData'));
     }
+    
     public function adminPasswordUpdate(Request $request)
     {
         $request->validate([

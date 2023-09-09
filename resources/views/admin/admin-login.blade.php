@@ -80,18 +80,11 @@ License: For each use you must have a valid license purchased only from above li
                         <label for="password" :value="__('Password')" class="form-label">Contraseña</label>
                         <input type="password" name="password" class="form-control" id="password" autocomplete="current-password" placeholder="Password">
                       </div>
-                      <div class="form-check mb-3">
-                        <input type="checkbox" class="form-check-input" id="authCheck">
-                        <label class="form-check-label" for="authCheck">
-                          Recuérdame
-                        </label>
-                      </div>
                       <div>
                         <button type="submit" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
                             Iniciar sesión
                         </button>
                       </div>
-                      <a href="register.html" class="d-block mt-3 text-muted">Not a user? Sign up</a>
                     </form>
                   </div>
                 </div>
