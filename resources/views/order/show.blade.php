@@ -18,6 +18,12 @@
 				{{ $order->id }}
 			</div>
 		</div>
+		<div class="row mb-4">
+			<label class="col-sm-2 col-label-form"><b>Nombre cliente</b></label>
+			<div class="col-sm-10">
+				{{ $order->user_id }}
+			</div>
+		</div>
 		<div class="row mb-3">
 			<label class="col-sm-2 col-label-form"><b>Estado</b></label>
 			<div class="col-sm-10">
@@ -40,6 +46,12 @@
 			<label class="col-sm-2 col-label-form"><b>Comentarios</b></label>
 			<div class="col-sm-10">
 				{{ $order->comments }}
+			</div>
+		</div>
+		<div class="row mb-4">
+			<label class="col-sm-2 col-label-form"><b>Id Platos</b></label>
+			<div class="col-sm-10">
+			{{ $order->dishes->pivot->name }}
 			</div>
 		</div>
 	</div>

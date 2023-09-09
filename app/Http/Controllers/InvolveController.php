@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Involve;
 use Illuminate\Http\Request;
 
 class InvolveController extends Controller
@@ -11,7 +12,7 @@ class InvolveController extends Controller
      */
     public function index()
     {
-        //
+       
     }
 
     /**
@@ -33,9 +34,10 @@ class InvolveController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Order $order)
     {
-        //
+        $involve= Involve::where('order_id', $order->id)->first();
+        return view ('order.show', compact('order', 'involve'));
     }
 
     /**

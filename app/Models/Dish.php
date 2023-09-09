@@ -12,5 +12,9 @@ class Dish extends Model
     protected $table = 'dishes';
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'price', 'description', 'image'];
+
+    public function orders(){
+        return $this->belongsToMany(Order::class)->withPivot('id')->using(Involve::class);
+    }
 }
 

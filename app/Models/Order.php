@@ -10,5 +10,14 @@ class Order extends Model
     use HasFactory;
     protected $primaryKey = 'id';
     protected $table = 'orders';
-    protected $fillable = ['state', 'payment', 'delivery', 'comments'];
+    protected $fillable = ['user_id', 'state', 'payment', 'delivery', 'comments'];
+
+    public function users(){
+        return $this->belongsTo(User::class)->withDefault();
+    }
+
+    public function dishes(){
+        return $this->belongsToMany(Dish::class)->withPivot('id')->using(Involve::class);
+    }
+    
 }
