@@ -48,11 +48,11 @@
 						@endforeach
         				</ul></td>
 						<td>
-							<form method="post" action="{{ route('dish.destroy', $order->id) }}">
+							<form method="post" action="{{ route('order.destroy', $order->id) }}">
 								@csrf
 								@method('DELETE')
-								<a href="{{ route('dish.show', $order->id) }}" class="btn btn-primary btn-sm">Ver</a>
-								<a href="{{ route('dish.edit', $order->id) }}" class="btn btn-warning btn-sm">Editar</a>
+								<a href="{{ route('order.show', $order->id) }}" class="btn btn-primary btn-sm">Ver</a>
+								<a href="{{ route('order.edit', $order->id) }}" class="btn btn-warning btn-sm">Editar</a>
 								<input type="submit" class="btn btn-danger btn-sm" value="Eliminar" />
 							</form>
 							

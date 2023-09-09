@@ -3,12 +3,13 @@
 @section('content')
 
 <div class="card">
-	<div class="card-header">Edit Order</div>
+	<div class="card-header">Editar Orden</div>
 	<div class="card-body">
 		<form method="post" action="{{ route('order.update', $order->id) }}" enctype="multipart/form-data">
 			@csrf
 			@method('PUT')
 			<input type="hidden" name="id" value="{{ $order->id }}">
+			<p>{{ $order->user->name ." ". $order->user->surname }}</p>
 			<div class="row mb-3">
 				<label class="col-sm-2 col-label-form">Estado</label>
 				<select name="state" class="form-control">
@@ -43,7 +44,8 @@
 			<div class="text-center">
 				<input type="submit" class="btn btn-primary" value="Guardar cambios" />
 			</div>	
-		</form>
+		</form>	
+			
 	</div>
 </div>
 

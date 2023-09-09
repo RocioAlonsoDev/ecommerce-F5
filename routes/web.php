@@ -9,6 +9,7 @@ use App\Http\Controllers\OrderController;
 
 Route::resource('dish', DishController::class);
 Route::resource('order', OrderController::class);
+Route::resource('involve', InvolveController::class);
 
 
 Route::get('/', function () {
