@@ -51,7 +51,7 @@
 		<div class="row mb-4">
 			<label class="col-sm-2 col-label-form"><b>Id Platos</b></label>
 			<div class="col-sm-10">
-			{{ $order->dishes->pivot->name }}
+			{{ $order->dishes->name }}
 			</div>
 		</div>
 	</div>

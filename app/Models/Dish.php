@@ -14,7 +14,8 @@ class Dish extends Model
     protected $fillable = ['name', 'price', 'description', 'image'];
 
     public function orders(){
-        return $this->belongsToMany(Order::class)->withPivot('id')->using(Involve::class);
+        return $this->belongsToMany(Order::class, 'involves', 'dish_id', 'order_id')
+        ->withPivot('quantity');
     }
 }
 

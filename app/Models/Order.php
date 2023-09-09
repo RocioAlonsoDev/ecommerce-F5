@@ -12,12 +12,12 @@ class Order extends Model
     protected $table = 'orders';
     protected $fillable = ['user_id', 'state', 'payment', 'delivery', 'comments'];
 
-    public function users(){
-        return $this->belongsTo(User::class)->withDefault();
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function dishes(){
-        return $this->belongsToMany(Dish::class)->withPivot('id')->using(Involve::class);
+        return $this->belongsToMany(Dish::class, 'involves', 'order_id', 'dish_id')->withPivot('quantity');
     }
     
 }

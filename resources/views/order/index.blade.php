@@ -1,50 +1,59 @@
+
+
 @extends('order.master')
 
 @section('content')
-
-@if($message = Session::get('success'))
-
-<div class="alert alert-success">
-	{{ $message }}
-</div>
-
-@endif
 
 <div class="card">
 	<div class="card-header">
 		<div class="row">
 			<div class="col col-md-6"><b>Ordenes</b></div>
 			<div class="col col-md-6">
-				<a href="{{ route('order.create') }}" class="btn btn-success btn-sm float-end">Agregar Pedido</a>
+				<a href="{{ route('dish.create') }}" class="btn btn-success btn-sm float-end">Añadir</a>
 			</div>
 		</div>
 	</div>
 	<div class="card-body">
 		<table class="table table-bordered">
 			<tr>
-				<th>Numero</th>
+				<th>ID</th>
+				<th>Usuario</th>
 				<th>Estado</th>
 				<th>Pago</th>
-				<th>Delivery</th>
+				<th>Entrega</th>
 				<th>Comentarios</th>
+				<th>Cantidad</th>
+				<th>Plato</th>
 			</tr>
-			@if(($data) == true)
+			
 
-				@foreach($data as $row)
+			@foreach ($orders as $order)
 
 					<tr>
-						<td>{{ $row->id}}</td>
-						<td>{{ $row->state }}</td>
-						<td>{{ $row->payment }}</td>
-						<td>{{ $row->delivery }}</td>
-						<td>{{ $row->comments }}</td>
+						
+						<td>{{ $order->id }}</td>
+						<td>{{ $order->user->name ." ". $order->user->surname }}</td>
+						<td>{{ $order->state }}</td>
+						<td>{{ $order->payment }}</td>
+						<td>{{ $order->delivery }}</td>
+						<td>{{ $order->comments }}</td>
+						<td><ul>
+                @foreach ($order->dishes as $dish)
+                    <ul>{{ $dish->pivot->quantity }}</ul>
+                @endforeach
+            </ul></td>
+						<td><ul>
+						@foreach ($order->dishes as $dish)
+							<ul>{{ $dish->name }}</ul>
+						@endforeach
+        				</ul></td>
 						<td>
-							<form method="post" action="{{ route('order.destroy', $row->id) }}">
+							<form method="post" action="{{ route('dish.destroy', $order->id) }}">
 								@csrf
 								@method('DELETE')
-								<a href="{{ route('order.show', $row->id) }}" class="btn btn-primary btn-sm">View</a>
-								<a href="{{ route('order.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
-								<input type="submit" class="btn btn-danger btn-sm" value="Delete" />
+								<a href="{{ route('dish.show', $order->id) }}" class="btn btn-primary btn-sm">Ver</a>
+								<a href="{{ route('dish.edit', $order->id) }}" class="btn btn-warning btn-sm">Editar</a>
+								<input type="submit" class="btn btn-danger btn-sm" value="Eliminar" />
 							</form>
 							
 						</td>
@@ -52,13 +61,9 @@
 
 				@endforeach
 
-			@else
-				<tr>
-					<td colspan="5" class="text-center">No Data Found</td>
-				</tr>
-			@endif
+			
 		</table>
-		{$data}
+		
 	</div>
 </div>
 

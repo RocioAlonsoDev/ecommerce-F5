@@ -12,10 +12,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $perPage = 5;
-        $data = Order::latest()->paginate($perPage);
+        $orders = Order::with('dishes')->get();
 
-        return view('order.index', compact('data'));
+        return view('order.index', compact('orders'));
     }
 
     /**
